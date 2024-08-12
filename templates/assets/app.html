@@ -13,7 +13,7 @@
 		<tbody>
 			{% for file in data %}
 				<tr>
-					<td contenteditable="true" class="editable">{{file.filename}}</td>
+					<td contenteditable="true" spellcheck="false" class="editable">{{file.filename}}</td>
 					<td><b style="border: 2px solid #ddd; padding: 5px">{{file.st_size}}</b></td>
 					<td>{{file.st_mtime}}</td>
 					<td><b style="border: 2px solid #ddd; padding: 5px">{{file.st_mode}}</b></td>
