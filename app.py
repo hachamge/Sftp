@@ -1,6 +1,7 @@
 import json
 from typing import Dict
 from pudb import set_trace
+from googleapi.gmail_SDK_suit import SDK_Suit
 from paramiko import SFTPAttributes
 from chost.hostconnect import hostconnect
 from flask import (Flask, render_template, jsonify, request)
@@ -30,6 +31,19 @@ def edit():
 
     oldpath = f"./{oldpath}"
     newpath = f"./{newpath}"
+
+    emailDraft = f"""
+    <html>
+        <head></head>
+        <body>
+            <p><b style="border: 2px solid #ddd; padding: 5px; color: purple">{oldpath}</b> was changed to <b style="border: 2px solid #ddd; padding: 5px; color: green">{newpath}</b> </p>
+        </body>
+    </html>
+    """
+    me:str="seymour2@pdx.edu"
+    gmail = SDK_Suit()
+    draft = gmail.create_draft(me, me, "CS510-Group2", emailDraft)
+    gmail.send_draft(me, draft["id"])
 
     with hostconnect(session=session) as host:
         host.rename(oldpath=oldpath, newpath=newpath)
