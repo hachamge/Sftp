@@ -1,6 +1,6 @@
 .assets {
 	width: 60%;
-	height: 90%;
+	height: 60%;
 	bottom: 0;
 	display: flex;
 	padding: 10px;
@@ -41,7 +41,7 @@ th {
 
 tbody {
     display: block;
-    height: 530px;
+    height: 340px;
     overflow-y: auto;
     width: 100%;
 }
