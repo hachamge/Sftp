@@ -10,6 +10,11 @@ app = Flask(__name__)
 app.config['DEBUG'] = True
 
 session:Dict = None
+"""
+    create the host.json in the directory chost, and
+    write in your login credentials using the full
+    title such as: username, port, password, host
+"""
 with open("chost/host.json", 'r') as file:
     session = json.load(file)
 
